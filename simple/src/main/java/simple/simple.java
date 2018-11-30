@@ -965,23 +965,35 @@ public class simple
 	 */
 	public static void main(String[] args)
 	{		
-		// Make a render panel. The init function of the renderPanel
-		// (see above) will be called back for initialization.
-		renderPanel = new SimpleRenderPanel();
+		Point3f p0 = new Point3f(0,0,0);
+		Point3f p1 = new Point3f(1,1,1);
+		Point3f p2 = new Point3f(2,2,2);
+		Point3f p3 = new Point3f(3,3,3);
 		
-		// Make the main window of this application and add the renderer to it
-		JFrame jframe = new JFrame("simple");
-		jframe.setSize(500, 500);
-		jframe.setLocationRelativeTo(null); // center of screen
-		jframe.getContentPane().add(renderPanel.getCanvas());// put the canvas into a JFrame window
-
-		// Add a mouse and key listener
-		renderPanel.getCanvas().addMouseMotionListener(new SimpleMouseMotionListener());
-	    renderPanel.getCanvas().addMouseListener(new SimpleMouseListener());
-	    renderPanel.getCanvas().addKeyListener(new SimpleKeyListener());
-		renderPanel.getCanvas().setFocusable(true);   	    	    
-	    
-	    jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	    jframe.setVisible(true); // show window
+		CubicBezier c = new CubicBezier(p0,p1,p2,p3);
+		Point3f[] result = c.getPoints(4);
+		
+		for (int i = 0; i < result.length; i++) {
+			System.out.println(result[i]);
+		}
+		                                                                                         
+//		// Make a render panel. The init function of the renderPanel
+//		// (see above) will be called back for initialization.
+//		renderPanel = new SimpleRenderPanel();
+//		
+//		// Make the main window of this application and add the renderer to it
+//		JFrame jframe = new JFrame("simple");
+//		jframe.setSize(500, 500);
+//		jframe.setLocationRelativeTo(null); // center of screen
+//		jframe.getContentPane().add(renderPanel.getCanvas());// put the canvas into a JFrame window
+//
+//		// Add a mouse and key listener
+//		renderPanel.getCanvas().addMouseMotionListener(new SimpleMouseMotionListener());
+//	    renderPanel.getCanvas().addMouseListener(new SimpleMouseListener());
+//	    renderPanel.getCanvas().addKeyListener(new SimpleKeyListener());
+//		renderPanel.getCanvas().setFocusable(true);   	    	    
+//	    
+//	    jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//	    jframe.setVisible(true); // show window
 	}
 }
