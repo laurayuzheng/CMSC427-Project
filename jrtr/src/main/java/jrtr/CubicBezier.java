@@ -75,4 +75,8 @@ public class CubicBezier {
 		evaluateCurve(n);
 		return points;
 	}
+	
+	public Point3f[] getTangents() {
+		return tangents;
+	}
 }

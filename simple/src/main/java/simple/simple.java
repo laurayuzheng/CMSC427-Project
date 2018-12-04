@@ -477,7 +477,7 @@ public class simple
 			for (int i = 0; i < p; i++) {
 				v[3*i] = (float) Math.cos((i) * 2 * Math.PI/p);
 				v[3*i + 1] = 3;
-				v[3*i + 2] = (float) Math.sin((i ) * 2 * Math.PI/p);
+				v[3*i + 2] = (float) Math.sin((i) * 2 * Math.PI/p);
 				
 				n[3*i] = 0;
 				n[3*i + 1] = 1;
@@ -969,9 +969,16 @@ public class simple
 		Point3f p1 = new Point3f(1,1,1);
 		Point3f p2 = new Point3f(2,2,2);
 		Point3f p3 = new Point3f(3,3,3);
+		Point3f p4 = new Point3f(4,4,4);
+		Point3f p5 = new Point3f(5,5,5);
+		Point3f p6 = new Point3f(6,6,6);
 		
-		CubicBezier c = new CubicBezier(p0,p1,p2,p3);
-		Point3f[] result = c.getPoints(4);
+		Point3f[] controls = {p0,p1,p2,p3,p4,p5,p6};
+		PiecewiseBezier p = new PiecewiseBezier(controls);
+		Point3f[] result = p.getPoints(10);
+		
+//		PiecewiseBezier c = new CubicBezier(p0,p1,p2,p3);
+//		Point3f[] result = c.getPoints(10);
 		
 		for (int i = 0; i < result.length; i++) {
 			System.out.println(result[i]);
